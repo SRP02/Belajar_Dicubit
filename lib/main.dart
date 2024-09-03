@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_belajar_cubit/bangunRuang_cubit/bangunRuang_cubit.dart';
 import 'package:project_belajar_cubit/bangundatar_cubit/shapeCalculator_cubit.dart';
+import 'package:project_belajar_cubit/bmi_cubit/bmi_calculator.dart';
 import 'package:project_belajar_cubit/landing_page.dart';
 
 void main() {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => const LandingPage(),
         '/shape_calculator': (context) => ShapeCalculatorApp(),
         '/Kalkulator_bangunRuang': (context) => kalkulator_bangun_ruang(),
+        '/Kalkulator_bmi': (context) => BMICalculator(),
       },
     );
   }
