@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_belajar_cubit/bangunRuang_cubit/bangunRuang_cubit.dart';
 import 'package:project_belajar_cubit/bangundatar_cubit/shapeCalculator_cubit.dart';
 import 'package:project_belajar_cubit/landing_page.dart';
 
@@ -22,6 +23,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const LandingPage(),
         '/shape_calculator': (context) => ShapeCalculatorApp(),
+        '/Kalkulator_bangunRuang': (context) => kalkulator_bangun_ruang(),
       },
     );
   }
