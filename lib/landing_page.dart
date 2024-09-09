@@ -32,6 +32,13 @@ class LandingPage extends StatelessWidget {
               },
               child: const Text('/Kalkulator BMI'),
             ),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pushNamed(context, '/arithmetic_calculator');
+              },
+              child: const Text('Kalkulator Aritmatika'),
+            ),
           ],
         ),
       ),
