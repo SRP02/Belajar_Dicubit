@@ -20,17 +20,19 @@ class LandingPage extends StatelessWidget {
               },
               child: const Text('Kalkulator bangun datar'),
             ),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/Kalkulator_bangunRuang');
               },
               child: const Text('Kalkulator bangun ruang'),
             ),
+            const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () {
                 Navigator.pushNamed(context, '/Kalkulator_bmi');
               },
-              child: const Text('/Kalkulator BMI'),
+              child: const Text('Kalkulator BMI'),
             ),
             const SizedBox(height: 16),
             ElevatedButton(
