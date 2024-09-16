@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_belajar_cubit/reusable/reusableButton.dart';
+import 'package:project_belajar_cubit/reusable/reusableTextField.dart';
 import 'shape_cubit.dart';
 import 'shapeModel_cubit.dart';
 
@@ -12,24 +14,17 @@ class CircleScreen extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          TextField(
-            controller: _radiusController,
-            decoration: InputDecoration(labelText: "Masukkan radius"),
-            keyboardType: TextInputType.number,
-          ),
+          ReusableTextField(controller: _radiusController, label: 'Jari-jari', keyboardType: TextInputType.number),
           SizedBox(height: 20),
-          ElevatedButton(
-              onPressed: () {
-                 final radius = double.tryParse(_radiusController.text);
+          ReusableButton(label: 'Calculate', onPressed: (){
+              final radius = double.tryParse(_radiusController.text);
               if (radius != null) {
                 context.read<ShapeCubit>().calculateCircle(radius);
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Please enter a valid number')),
                 );
-              }
-            },
-            child: Text("Calculate"),
+              }}
           ),
           SizedBox(height: 20),
           BlocBuilder<ShapeCubit, Map<String, ShapeModel>>(

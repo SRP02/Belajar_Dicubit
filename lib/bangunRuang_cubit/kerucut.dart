@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:project_belajar_cubit/reusable/reusableButton.dart';
 import 'dart:math';
+
+import 'package:project_belajar_cubit/reusable/reusableTextField.dart';
 
 class LayarKerucut extends StatefulWidget {
   @override
@@ -35,28 +38,11 @@ class _LayarKerucutState extends State<LayarKerucut> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextField(
-              controller: _controllerJariJari,
-              decoration: InputDecoration(
-                labelText: 'Jari-jari (cm)',
-                border: OutlineInputBorder(),
-              ),
-              keyboardType: TextInputType.number,
-            ),
+            ReusableTextField(controller: _controllerJariJari, label: 'Jari-jari (cm)',keyboardType: TextInputType.number),
             SizedBox(height: 20),
-            TextField(
-              controller: _controllerTinggi,
-              decoration: InputDecoration(
-                labelText: 'Tinggi (cm)',
-                border: OutlineInputBorder(),
-              ),
-              keyboardType: TextInputType.number,
-            ),
+            ReusableTextField(controller: _controllerTinggi, label: 'Tinggi (cm)',keyboardType: TextInputType.number),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _hitung,
-              child: Text('Hitung'),
-            ),
+            ReusableButton(onPressed: _hitung, label: "Hitung"),
             if (_volume != null && _luasPermukaan != null)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

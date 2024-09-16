@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_belajar_cubit/reusable/reusableButton.dart';
+import 'package:project_belajar_cubit/reusable/reusableTextField.dart';
 
 class BMICalculator extends StatefulWidget {
   const BMICalculator({super.key});
@@ -48,20 +50,6 @@ class _BMICalculatorState extends State<BMICalculator> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('BMI Calculator'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.login),
-            onPressed: () {
-              Navigator.pushNamed(context, '/login');
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.list),
-            onPressed: () {
-              Navigator.pushNamed(context, '/student_list');
-            },
-          ),
-        ],
       ),
       backgroundColor: Color(0xFF55EEC4),
       body: Padding(
@@ -69,28 +57,11 @@ class _BMICalculatorState extends State<BMICalculator> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            TextField(
-              controller: heightController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Height (cm)',
-                border: OutlineInputBorder(),
-              ),
-            ),
+            ReusableTextField(controller: heightController, label: 'Height (cm)',keyboardType: TextInputType.number),
             const SizedBox(height: 16),
-            TextField(
-              controller: weightController,
-              keyboardType: TextInputType.number,
-              decoration: const InputDecoration(
-                labelText: 'Weight (kg)',
-                border: OutlineInputBorder(),
-              ),
-            ),
+            ReusableTextField(controller: weightController, label: 'Weight (kg)',keyboardType: TextInputType.number),
             const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: calculateBMI,
-              child: const Text('Calculate BMI'),
-            ),
+            ReusableButton(label: 'Calculate', onPressed: calculateBMI),
             const SizedBox(height: 16),
             Text(
               bmiResult ?? 'Please enter valid values',
