@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:project_belajar_cubit/reusable/reusableButton.dart';
+import 'package:project_belajar_cubit/reusable/reusableTextField.dart';
 
 class LayarKubus extends StatefulWidget {
   @override
@@ -31,19 +33,9 @@ class _LayarKubusState extends State<LayarKubus> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            TextField(
-              controller: _controllerSisi,
-              decoration: InputDecoration(
-                labelText: 'Panjang Sisi (cm)',
-                border: OutlineInputBorder(),
-              ),
-              keyboardType: TextInputType.number,
-            ),
+            ReusableTextField(controller: _controllerSisi, label: 'Panjang Sisi (cm)',keyboardType: TextInputType.number),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: _hitung,
-              child: Text('Hitung'),
-            ),
+            ReusableButton(label: 'Hitung', onPressed: _hitung),            
             if (_volume != null && _luasPermukaan != null)
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

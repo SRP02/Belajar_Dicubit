@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:project_belajar_cubit/reusable/reusableButton.dart';
+import 'package:project_belajar_cubit/reusable/reusableTextField.dart';
 import 'shape_cubit.dart';
 import 'shapeModel_cubit.dart';
 
@@ -13,19 +15,11 @@ class RectangleScreen extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
-          TextField(
-            controller: _lengthController,
-            decoration: InputDecoration(labelText: "Masukkan panjang"),
-            keyboardType: TextInputType.number,
-          ),
-          TextField(
-            controller: _widthController,
-            decoration: InputDecoration(labelText: "Masukkan lebar"),
-            keyboardType: TextInputType.number,
-          ),
+          ReusableTextField(controller: _lengthController, label: 'Panjang', keyboardType: TextInputType.number),
+          SizedBox(height: 10),
+          ReusableTextField(controller: _widthController, label: 'Lebar', keyboardType: TextInputType.number),
           SizedBox(height: 20),
-          ElevatedButton(
-            onPressed: () {
+          ReusableButton(label: 'Calculate', onPressed: (){
               final length = double.tryParse(_lengthController.text);
               final width = double.tryParse(_widthController.text);
               if (length != null && width != null) {
@@ -34,9 +28,7 @@ class RectangleScreen extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('Please enter valid numbers')),
                 );
-              }
-            },
-            child: Text("Calculate"),
+              }}
           ),
           SizedBox(height: 20),
           BlocBuilder<ShapeCubit, Map<String, ShapeModel>>(
