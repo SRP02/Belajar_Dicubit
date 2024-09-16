@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:project_belajar_cubit/reusable/reusableButton.dart';
 
 class LandingPage extends StatelessWidget {
   const LandingPage({super.key});
@@ -14,32 +15,36 @@ class LandingPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const SizedBox(height: 16),
-            ElevatedButton(
+            ReusableButton(
+              label: 'Kalkulator bangun datar',
               onPressed: () {
                 Navigator.pushNamed(context, '/shape_calculator');
               },
-              child: const Text('Kalkulator bangun datar'),
+              color: Colors.blueAccent,
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
+            ReusableButton(
+              label: 'Kalkulator bangun ruang',
               onPressed: () {
                 Navigator.pushNamed(context, '/Kalkulator_bangunRuang');
               },
-              child: const Text('Kalkulator bangun ruang'),
+              color: Colors.greenAccent,
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
+            ReusableButton(
+              label: 'Kalkulator BMI',
               onPressed: () {
                 Navigator.pushNamed(context, '/Kalkulator_bmi');
               },
-              child: const Text('Kalkulator BMI'),
+              color: Colors.orangeAccent,
             ),
             const SizedBox(height: 16),
-            ElevatedButton(
+            ReusableButton(
+              label: 'Kalkulator Aritmatika',
               onPressed: () {
                 Navigator.pushNamed(context, '/arithmetic_calculator');
               },
-              child: const Text('Kalkulator Aritmatika'),
+              color: Colors.purpleAccent,
             ),
           ],
         ),

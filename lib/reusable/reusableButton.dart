@@ -21,14 +21,37 @@ class ReusableButton extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 24.0),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
       ),
-      child: Text(
-        label,
-        style: const TextStyle(
-          fontSize: 18,
-          fontWeight: FontWeight.bold,
-          color: Colors.white,
-        ),
+      child: Stack(
+        children: <Widget>[
+          Text(
+            label,
+             style: TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              foreground: Paint()
+                ..style = PaintingStyle.stroke
+                ..strokeWidth = 4
+                ..color = Colors.black,
+            ),
+          ),
+          Text(
+            label,
+            style: const TextStyle(
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+        ],
       ),
+      // child: Text(
+      //   label,
+      //   style: const TextStyle(
+      //     fontSize: 18,
+      //     fontWeight: FontWeight.bold,
+      //     color: Colors.white,
+      //   ),
+      // ),
     );
   }
 }
