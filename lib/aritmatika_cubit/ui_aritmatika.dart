@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_belajar_cubit/aritmatika_cubit/calculator_cubit.dart';
+import 'package:project_belajar_cubit/reusable/reusableButton.dart';
 
 class CalculatorPage extends StatelessWidget {
   @override
@@ -61,25 +62,16 @@ class CalculatorPage extends StatelessWidget {
   }
 
   Widget _buildButton(BuildContext context, String label) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: ElevatedButton(
-        onPressed: () => _onButtonPressed(context, label),
-        style: ElevatedButton.styleFrom(
-          padding: EdgeInsets.symmetric(vertical: 20),
-          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
-          backgroundColor: _isOperator(label) ? Colors.blueAccent : Colors.grey[300],
-        ),
-        child: Text(
-          label,
-          style: TextStyle(
-            fontSize: 24,
-            color: _isOperator(label) ? Colors.white : Colors.black,
-          ),
-        ),
-      ),
-    );
-  }
+  return Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: ReusableButton(
+      label: label,
+      onPressed: () => _onButtonPressed(context, label),
+      color: _isOperator(label) ? Colors.blueAccent : Colors.grey[300],
+    ),
+  );
+}
+
 
   bool _isOperator(String label) {
     return ['+', '-', '*', '/', '='].contains(label);
